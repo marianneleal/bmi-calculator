@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'bmi_theme.dart';
+
 void main() => runApp(BMICalculator());
 
 class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = BmiTheme.dark();
     return MaterialApp(
       home: InputPage(),
+      theme: theme,
     );
   }
 }
@@ -27,7 +31,7 @@ class _InputPageState extends State<InputPage> {
         child: Text('Body Text'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.green.shade900),
       ),
     );
   }
