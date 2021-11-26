@@ -1,12 +1,13 @@
 import 'package:bmi_calculator/child_icon.dart';
 import 'package:flutter/material.dart';
 
+import 'bmi_theme.dart';
+
 class containerChild extends StatelessWidget {
   final childIcon icon;
-  final Color fontColor;
   final String childText;
 
-  containerChild(this.icon, this.fontColor, this.childText);
+  containerChild(this.icon, this.childText);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,7 @@ class containerChild extends StatelessWidget {
         ),
         Text(
           childText,
-          style: TextStyle(
-            color: fontColor,
-          ),
+          style: BmiTheme.darkTextTheme.bodyText2,
         ),
       ],
     );

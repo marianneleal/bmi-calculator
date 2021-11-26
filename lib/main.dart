@@ -35,7 +35,7 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'BMI CALCULATOR',
+          'bmi calculator',
           style: BmiTheme.darkTextTheme.headline1,
         ),
       ),
@@ -56,8 +56,7 @@ class _InputPageState extends State<InputPage> {
                             Colors.amber,
                             80.0,
                           ),
-                          Colors.amber,
-                          'male',
+                          'male   ',
                         )
                       ],
                     )),
@@ -66,9 +65,15 @@ class _InputPageState extends State<InputPage> {
                 child: myContainer(
                     containerColor,
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
+                        containerChild(
+                          childIcon(
+                            FontAwesomeIcons.venus,
+                            Colors.amber,
+                            80.0,
+                          ),
+                          'female',
                         )
                       ],
                     )),
@@ -80,9 +85,7 @@ class _InputPageState extends State<InputPage> {
                 containerColor,
                 Column(
                   children: [
-                    Icon(
-                      FontAwesomeIcons.mars,
-                    )
+                    Text('height', style: BmiTheme.darkTextTheme.bodyText2)
                   ],
                 )),
           ),
@@ -93,22 +96,14 @@ class _InputPageState extends State<InputPage> {
                 child: myContainer(
                     containerColor,
                     Column(
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
-                        )
-                      ],
+                      children: [],
                     )),
               ),
               Expanded(
                 child: myContainer(
                     containerColor,
                     Column(
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
-                        )
-                      ],
+                      children: [],
                     )),
               ),
             ],

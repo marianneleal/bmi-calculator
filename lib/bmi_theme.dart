@@ -16,13 +16,18 @@ class BmiTheme {
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: TextStyle(
       color: Colors.white,
-      fontSize: 28.0,
+      fontSize: 20.0,
       fontFamily: 'AlfaSlabOne',
     ),
     headline1: TextStyle(
       fontSize: 28.0,
       fontFamily: 'AlfaSlabOne',
       color: Colors.amberAccent,
+    ),
+    bodyText2: TextStyle(
+      color: Colors.white,
+      fontSize: 14.0,
+      fontFamily: 'AlfaSlabOne',
     ),
   );
 }
