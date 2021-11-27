@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class myContainer extends StatelessWidget {
   final Color color;
-  Widget containerChild;
+  final Widget containerChild;
 
   myContainer(this.color, this.containerChild);
 
