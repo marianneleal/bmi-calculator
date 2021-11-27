@@ -12,7 +12,7 @@ class childIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       icon,
-      color: Colors.white,
+      color: color,
       size: iconSize,
     );
   }
