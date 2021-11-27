@@ -9,7 +9,8 @@ import 'my_container.dart';
 const bottomContainerHeight = 80.0;
 const containerColor = Color(0xFF167030);
 const bottomContainerColor = Color(0xFF993330);
-
+const iconColor = Colors.amberAccent;
+const iconSize = 80.0;
 void main() => runApp(BMICalculator());
 
 class BMICalculator extends StatelessWidget {
@@ -53,8 +54,8 @@ class _InputPageState extends State<InputPage> {
                         containerChild(
                           childIcon(
                             FontAwesomeIcons.mars,
-                            Colors.amber,
-                            80.0,
+                            iconColor,
+                            iconSize,
                           ),
                           'male   ',
                         )
@@ -70,8 +71,8 @@ class _InputPageState extends State<InputPage> {
                         containerChild(
                           childIcon(
                             FontAwesomeIcons.venus,
-                            Colors.amber,
-                            80.0,
+                            iconColor,
+                            iconSize,
                           ),
                           'female',
                         )
