@@ -7,7 +7,8 @@ import 'child_icon.dart';
 import 'my_container.dart';
 
 const bottomContainerHeight = 80.0;
-const containerColor = Color(0xFF167030);
+const inactiveContainerColor = Color(0xFF167030);
+const activeContainerColor = Color(0xFFEB1555);
 const bottomContainerColor = Color(0xFF993330);
 const iconColor = Colors.amberAccent;
 const iconSize = 80.0;
@@ -30,6 +31,29 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color malecardcolor = inactiveContainerColor;
+  Color femalecardcolor = inactiveContainerColor;
+
+  // 0 = male, 1 = female
+  void updateColor(int gender) {
+    if (gender == 0) {
+      if (malecardcolor == inactiveContainerColor) {
+        malecardcolor = activeContainerColor;
+        femalecardcolor = inactiveContainerColor;
+      } else {
+        malecardcolor = inactiveContainerColor;
+      }
+    }
+    if (gender == 1) {
+      if (femalecardcolor == inactiveContainerColor) {
+        femalecardcolor = activeContainerColor;
+        malecardcolor = inactiveContainerColor;
+      } else {
+        femalecardcolor = inactiveContainerColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,44 +70,61 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: [
               Expanded(
-                child: myContainer(
-                    containerColor,
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        containerChild(
-                          childIcon(
-                            FontAwesomeIcons.mars,
-                            iconColor,
-                            iconSize,
+                child: GestureDetector(
+                  // behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    setState(() {
+                      updateColor(0);
+                      print('male tapped');
+                    });
+                  },
+                  child: myContainer(
+                      malecardcolor,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          containerChild(
+                            childIcon(
+                              FontAwesomeIcons.mars,
+                              iconColor,
+                              iconSize,
+                            ),
+                            'male   ',
                           ),
-                          'male   ',
-                        )
-                      ],
-                    )),
+                        ],
+                      )),
+                ),
               ),
               Expanded(
-                child: myContainer(
-                    containerColor,
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        containerChild(
-                          childIcon(
-                            FontAwesomeIcons.venus,
-                            iconColor,
-                            iconSize,
-                          ),
-                          'female',
-                        )
-                      ],
-                    )),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      updateColor(1);
+                      print('female tapped');
+                    });
+                  },
+                  child: myContainer(
+                      femalecardcolor,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          containerChild(
+                            childIcon(
+                              FontAwesomeIcons.venus,
+                              iconColor,
+                              iconSize,
+                            ),
+                            'female',
+                          )
+                        ],
+                      )),
+                ),
               ),
             ],
           )),
           Expanded(
             child: myContainer(
-                containerColor,
+                inactiveContainerColor,
                 Column(
                   children: [
                     Text('height', style: BmiTheme.darkTextTheme.bodyText2)
@@ -95,14 +136,14 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: myContainer(
-                    containerColor,
+                    inactiveContainerColor,
                     Column(
                       children: [],
                     )),
               ),
               Expanded(
                 child: myContainer(
-                    containerColor,
+                    inactiveContainerColor,
                     Column(
                       children: [],
                     )),
