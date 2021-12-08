@@ -9,6 +9,7 @@ import 'constants.dart';
 
 void main() => runApp(BMICalculator());
 enum Gender { male, female }
+int height = 180;
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -65,7 +66,7 @@ class _InputPageState extends State<InputPage> {
                             kIconColor,
                             kIconSize,
                           ),
-                          'male   ',
+                          'male ',
                         ),
                       ],
                     )),
@@ -101,11 +102,27 @@ class _InputPageState extends State<InputPage> {
             child: myContainer(
                 color: kInactiveContainerColor,
                 containerChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'height',
-                      style: BmiTheme.darkTextTheme.bodyText2,
+                      height.toString(),
+                      style: BmiTheme.darkTextTheme.headline1,
                     ),
+                    Row(
+                      textBaseline: TextBaseline.alphabetic,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      children: [
+                        Text('180', style: kNumberTextStyle),
+                        Text(' cm', style: BmiTheme.darkTextTheme.bodyText2)
+                      ],
+                    ),
+                    Slider(
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                    )
                   ],
                 )),
           ),

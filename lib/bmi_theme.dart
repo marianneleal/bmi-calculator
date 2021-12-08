@@ -16,7 +16,7 @@ class BmiTheme {
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: TextStyle(
       color: Colors.white,
-      fontSize: 20.0,
+      fontSize: 40.0,
       fontFamily: 'AlfaSlabOne',
     ),
     headline1: TextStyle(
@@ -26,7 +26,7 @@ class BmiTheme {
     ),
     bodyText2: TextStyle(
       color: Colors.white,
-      fontSize: 14.0,
+      fontSize: 20.0,
       fontFamily: 'AlfaSlabOne',
     ),
   );
