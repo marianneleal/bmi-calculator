@@ -7,6 +7,11 @@ import 'main.dart';
 import 'components/my_container.dart';
 
 class ResultsPage extends StatelessWidget {
+  final bmiResult;
+  final String judgement;
+
+  ResultsPage({this.bmiResult, this.judgement});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +33,10 @@ class ResultsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Normal', style: kResultTextStyle),
+                    Text(judgement.toUpperCase(), style: kResultTextStyle),
                     Text(
-                      '$calculatedBMI',
+                      '$bmiResult',
                       style: kNumberTextStyle,
-                    ),
-                    Text(
-                      'Your weight is within the normal range.',
-                      style: BmiTheme.darkTextTheme.bodyText2,
                     ),
                     BottomButton(
                         buttonTitle: 'recalculate',

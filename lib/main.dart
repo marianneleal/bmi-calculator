@@ -9,13 +9,14 @@ import 'components/child_icon.dart';
 import 'components/my_container.dart';
 import 'components/constants.dart';
 import 'results_page.dart';
+import 'dart:math';
+import 'bmi_brain.dart';
 
 void main() => runApp(BMICalculator());
 enum Gender { male, female }
 int height = 180;
 double weight = 70;
 int age = 25;
-double calculatedBMI = weight / (height / 100 * height / 100);
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -220,10 +221,15 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'calculate',
             tapFunction: () {
+              BMIBrain brain = new BMIBrain(height: height, weight: weight);
+
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return ResultsPage();
+                  return ResultsPage(
+                    bmiResult: brain.calculateBMI(),
+                    judgement: brain.judgeResult(),
+                  );
                 }),
               );
             },
