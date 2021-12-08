@@ -1,9 +1,10 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:flutter/material.dart';
 
 import 'bmi_theme.dart';
-import 'constants.dart';
+import 'components/constants.dart';
 import 'main.dart';
-import 'my_container.dart';
+import 'components/my_container.dart';
 
 class ResultsPage extends StatelessWidget {
   @override
@@ -36,6 +37,11 @@ class ResultsPage extends StatelessWidget {
                       'Your weight is within the normal range.',
                       style: BmiTheme.darkTextTheme.bodyText2,
                     ),
+                    BottomButton(
+                        buttonTitle: 'recalculate',
+                        tapFunction: () {
+                          Navigator.pop(context);
+                        }),
                   ],
                 ),
               ),
