@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:bmi_calculator/container_child.dart';
+import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'bmi_theme.dart';
@@ -11,6 +12,7 @@ void main() => runApp(BMICalculator());
 enum Gender { male, female }
 int height = 180;
 double weight = 70;
+int age = 25;
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -158,6 +160,26 @@ class _InputPageState extends State<InputPage> {
                       children: [
                         Text('weight', style: BmiTheme.darkTextTheme.headline1),
                         Text(weight.toString(), style: kNumberTextStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight -= 0.5;
+                                  });
+                                }),
+                            SizedBox(width: 10),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight += 0.5;
+                                  });
+                                }),
+                          ],
+                        ),
                       ],
                     )),
               ),
@@ -165,20 +187,47 @@ class _InputPageState extends State<InputPage> {
                 child: myContainer(
                     color: kInactiveContainerColor,
                     containerChild: Column(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('age', style: BmiTheme.darkTextTheme.headline1),
+                        Text(age.toString(), style: kNumberTextStyle),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  }),
+                              RoundIconButton(
+                                  icon: FontAwesomeIcons.plus,
+                                  onPressed: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  })
+                            ])
+                      ],
                     )),
               ),
             ],
           )),
           Container(
-            margin: EdgeInsets.only(top: 10, bottom: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            decoration: BoxDecoration(
-              color: kBottomContainerColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
+              margin: EdgeInsets.only(top: 10, bottom: 10),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              decoration: BoxDecoration(
+                color: Color(0xFFEB1555),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Text(
+                  'calculate',
+                  style: BmiTheme.darkTextTheme.bodyText1,
+                ),
+              )),
         ],
       ),
     );
