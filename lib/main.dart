@@ -4,6 +4,7 @@ import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'bmi_theme.dart';
+import 'bottom_button.dart';
 import 'child_icon.dart';
 import 'my_container.dart';
 import 'constants.dart';
@@ -14,6 +15,7 @@ enum Gender { male, female }
 int height = 180;
 double weight = 70;
 int age = 25;
+double calculatedBMI = weight / (height / 100 * height / 100);
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -215,31 +217,7 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          Container(
-            margin: EdgeInsets.only(top: 10, bottom: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            decoration: BoxDecoration(
-              color: Color(0xFFEB1555),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: InkWell(
-                child: Text(
-                  'calculate',
-                  style: BmiTheme.darkTextTheme.bodyText1,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      return ResultsPage();
-                    }),
-                  );
-                },
-              ),
-            ),
-          ),
+          BottomButton(buttonTitle: 'calculate'),
         ],
       ),
     );

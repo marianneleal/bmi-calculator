@@ -12,3 +12,8 @@ const kNumberTextStyle = TextStyle(
   fontSize: 40.0,
   fontFamily: 'AlfaSlabOne',
 );
+const kResultTextStyle = TextStyle(
+  color: Colors.amber,
+  fontSize: 40,
+  fontFamily: 'AlfaSlabOne',
+);
