@@ -106,7 +106,7 @@ class _InputPageState extends State<InputPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      height.toString(),
+                      'height',
                       style: BmiTheme.darkTextTheme.headline1,
                     ),
                     Row(
@@ -114,7 +114,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       children: [
-                        Text('180', style: kNumberTextStyle),
+                        Text(height.toString(), style: kNumberTextStyle),
                         Text(' cm', style: BmiTheme.darkTextTheme.bodyText2)
                       ],
                     ),
@@ -122,6 +122,15 @@ class _InputPageState extends State<InputPage> {
                       value: height.toDouble(),
                       min: 120.0,
                       max: 220.0,
+                      divisions: 100,
+                      onChanged: (double newValue) {
+                        height = newValue.toInt();
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                      activeColor: Colors.pinkAccent,
+                      inactiveColor: Colors.pink.shade100,
                     )
                   ],
                 )),
