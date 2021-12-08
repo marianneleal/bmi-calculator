@@ -10,6 +10,7 @@ import 'constants.dart';
 void main() => runApp(BMICalculator());
 enum Gender { male, female }
 int height = 180;
+double weight = 70;
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -118,19 +119,30 @@ class _InputPageState extends State<InputPage> {
                         Text(' cm', style: BmiTheme.darkTextTheme.bodyText2)
                       ],
                     ),
-                    Slider(
-                      value: height.toDouble(),
-                      min: 120.0,
-                      max: 220.0,
-                      divisions: 100,
-                      onChanged: (double newValue) {
-                        height = newValue.toInt();
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      },
-                      activeColor: Colors.pinkAccent,
-                      inactiveColor: Colors.pink.shade100,
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        thumbShape: RoundSliderThumbShape(
+                          enabledThumbRadius: 15,
+                        ),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30),
+                        overlayColor: Color(0x1FEB1555),
+                        thumbColor: Color(0xFFEB1555),
+                        activeTrackColor: Colors.white,
+                      ),
+                      child: Slider(
+                        value: height.toDouble(),
+                        min: 120.0,
+                        max: 220.0,
+                        divisions: 100,
+                        onChanged: (double newValue) {
+                          height = newValue.toInt();
+                          setState(() {
+                            height = newValue.round();
+                          });
+                        },
+                        inactiveColor: Colors.grey,
+                      ),
                     )
                   ],
                 )),
@@ -142,7 +154,11 @@ class _InputPageState extends State<InputPage> {
                 child: myContainer(
                     color: kInactiveContainerColor,
                     containerChild: Column(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('weight', style: BmiTheme.darkTextTheme.headline1),
+                        Text(weight.toString(), style: kNumberTextStyle),
+                      ],
                     )),
               ),
               Expanded(
