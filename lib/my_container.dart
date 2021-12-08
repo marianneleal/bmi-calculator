@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
 class myContainer extends StatelessWidget {
-  final Color inactiveColor;
+  final Color color;
   final Widget containerChild;
+  final Function tapFunction;
 
-  myContainer(this.inactiveColor, this.containerChild);
+  myContainer({this.color, this.containerChild, this.tapFunction});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: containerChild,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-          color: inactiveColor, borderRadius: BorderRadius.circular(10)),
+    return InkWell(
+      onTap: tapFunction,
+      child: Container(
+        child: containerChild,
+        margin: EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(10)),
+      ),
     );
   }
 }
