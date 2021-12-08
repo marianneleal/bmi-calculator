@@ -8,11 +8,12 @@ import 'my_container.dart';
 
 const bottomContainerHeight = 80.0;
 const inactiveContainerColor = Color(0xFF167030);
-const activeContainerColor = Color(0xFFEB1555);
+const activeContainerColor = Color(0xFF003415);
 const bottomContainerColor = Color(0xFF993330);
 const iconColor = Colors.amberAccent;
 const iconSize = 80.0;
 void main() => runApp(BMICalculator());
+enum Gender { male, female }
 
 class BMICalculator extends StatelessWidget {
   @override
@@ -31,28 +32,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
   Color malecardcolor = inactiveContainerColor;
   Color femalecardcolor = inactiveContainerColor;
-
-  // 0 = male, 1 = female
-  void updateColor(int gender) {
-    if (gender == 0) {
-      if (malecardcolor == inactiveContainerColor) {
-        malecardcolor = activeContainerColor;
-        femalecardcolor = inactiveContainerColor;
-      } else {
-        malecardcolor = inactiveContainerColor;
-      }
-    }
-    if (gender == 1) {
-      if (femalecardcolor == inactiveContainerColor) {
-        femalecardcolor = activeContainerColor;
-        malecardcolor = inactiveContainerColor;
-      } else {
-        femalecardcolor = inactiveContainerColor;
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,64 +52,65 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  // behavior: HitTestBehavior.translucent,
-                  onTap: () {
-                    setState(() {
-                      updateColor(0);
-                      print('male tapped');
-                    });
-                  },
-                  child: myContainer(
-                      malecardcolor,
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          containerChild(
-                            childIcon(
-                              FontAwesomeIcons.mars,
-                              iconColor,
-                              iconSize,
-                            ),
-                            'male   ',
+                child: myContainer(
+                    tapFunction: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    color: selectedGender == Gender.male
+                        ? activeContainerColor
+                        : inactiveContainerColor,
+                    containerChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        containerChild(
+                          childIcon(
+                            FontAwesomeIcons.mars,
+                            iconColor,
+                            iconSize,
                           ),
-                        ],
-                      )),
-                ),
+                          'male   ',
+                        ),
+                      ],
+                    )),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      updateColor(1);
-                      print('female tapped');
-                    });
-                  },
-                  child: myContainer(
-                      femalecardcolor,
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          containerChild(
-                            childIcon(
-                              FontAwesomeIcons.venus,
-                              iconColor,
-                              iconSize,
-                            ),
-                            'female',
-                          )
-                        ],
-                      )),
-                ),
+                child: myContainer(
+                    tapFunction: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                        print('female tapped');
+                      });
+                    },
+                    color: selectedGender == Gender.female
+                        ? activeContainerColor
+                        : inactiveContainerColor,
+                    containerChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        containerChild(
+                          childIcon(
+                            FontAwesomeIcons.venus,
+                            iconColor,
+                            iconSize,
+                          ),
+                          'female',
+                        )
+                      ],
+                    )),
               ),
             ],
           )),
           Expanded(
             child: myContainer(
-                inactiveContainerColor,
-                Column(
+                color: inactiveContainerColor,
+                containerChild: Column(
                   children: [
-                    Text('height', style: BmiTheme.darkTextTheme.bodyText2)
+                    Text(
+                      'height',
+                      style: BmiTheme.darkTextTheme.bodyText2,
+                    ),
                   ],
                 )),
           ),
@@ -136,15 +119,15 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: myContainer(
-                    inactiveContainerColor,
-                    Column(
+                    color: inactiveContainerColor,
+                    containerChild: Column(
                       children: [],
                     )),
               ),
               Expanded(
                 child: myContainer(
-                    inactiveContainerColor,
-                    Column(
+                    color: inactiveContainerColor,
+                    containerChild: Column(
                       children: [],
                     )),
               ),
