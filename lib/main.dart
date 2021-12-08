@@ -5,13 +5,8 @@ import 'package:flutter/material.dart';
 import 'bmi_theme.dart';
 import 'child_icon.dart';
 import 'my_container.dart';
+import 'constants.dart';
 
-const bottomContainerHeight = 80.0;
-const inactiveContainerColor = Color(0xFF167030);
-const activeContainerColor = Color(0xFF003415);
-const bottomContainerColor = Color(0xFF993330);
-const iconColor = Colors.amberAccent;
-const iconSize = 80.0;
 void main() => runApp(BMICalculator());
 enum Gender { male, female }
 
