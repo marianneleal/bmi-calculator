@@ -6,7 +6,8 @@ import '../results_page.dart';
 
 class BottomButton extends StatelessWidget {
   final String buttonTitle;
-  const BottomButton({this.buttonTitle});
+  final Function tapFunction;
+  const BottomButton({this.buttonTitle, this.tapFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +22,10 @@ class BottomButton extends StatelessWidget {
       child: Center(
         child: InkWell(
           child: Text(
-            'calculate',
+            buttonTitle,
             style: BmiTheme.darkTextTheme.bodyText1,
           ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) {
-                return ResultsPage();
-              }),
-            );
-          },
+          onTap: tapFunction,
         ),
       ),
     );
