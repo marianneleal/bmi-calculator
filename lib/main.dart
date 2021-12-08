@@ -7,6 +7,7 @@ import 'bmi_theme.dart';
 import 'child_icon.dart';
 import 'my_container.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 void main() => runApp(BMICalculator());
 enum Gender { male, female }
@@ -215,19 +216,30 @@ class _InputPageState extends State<InputPage> {
             ],
           )),
           Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              decoration: BoxDecoration(
-                color: Color(0xFFEB1555),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
+            margin: EdgeInsets.only(top: 10, bottom: 10),
+            width: double.infinity,
+            height: kBottomContainerHeight,
+            decoration: BoxDecoration(
+              color: Color(0xFFEB1555),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: InkWell(
                 child: Text(
                   'calculate',
                   style: BmiTheme.darkTextTheme.bodyText1,
                 ),
-              )),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return ResultsPage();
+                    }),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
