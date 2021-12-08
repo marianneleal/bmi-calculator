@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/child_icon.dart';
+import 'package:bmi_calculator/components/child_icon.dart';
 import 'package:flutter/material.dart';
 
-import 'bmi_theme.dart';
+import '../bmi_theme.dart';
 
 class containerChild extends StatelessWidget {
   final childIcon icon;

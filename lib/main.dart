@@ -1,13 +1,13 @@
 import 'dart:ui';
-import 'package:bmi_calculator/container_child.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
+import 'package:bmi_calculator/components/container_child.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'bmi_theme.dart';
-import 'bottom_button.dart';
-import 'child_icon.dart';
-import 'my_container.dart';
-import 'constants.dart';
+import 'components/bottom_button.dart';
+import 'components/child_icon.dart';
+import 'components/my_container.dart';
+import 'components/constants.dart';
 import 'results_page.dart';
 
 void main() => runApp(BMICalculator());
