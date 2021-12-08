@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const bottomContainerHeight = 80.0;
-const inactiveContainerColor = Color(0xFF167030);
-const activeContainerColor = Color(0xFF003415);
-const bottomContainerColor = Color(0xFF993330);
-const iconColor = Colors.amberAccent;
-const iconSize = 80.0;
+const kBottomContainerHeight = 80.0;
+const kInactiveContainerColor = Color(0xFF167030);
+const kActiveContainerColor = Color(0xFF003415);
+const kBottomContainerColor = Color(0xFF993330);
+const kIconColor = Colors.amberAccent;
+const kIconSize = 80.0;

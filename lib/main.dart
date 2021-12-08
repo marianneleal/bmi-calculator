@@ -28,8 +28,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  Color malecardcolor = inactiveContainerColor;
-  Color femalecardcolor = inactiveContainerColor;
+  Color malecardcolor = kInactiveContainerColor;
+  Color femalecardcolor = kInactiveContainerColor;
 
   @override
   Widget build(BuildContext context) {
@@ -54,16 +54,16 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.male
-                        ? activeContainerColor
-                        : inactiveContainerColor,
+                        ? kActiveContainerColor
+                        : kInactiveContainerColor,
                     containerChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         containerChild(
                           childIcon(
                             FontAwesomeIcons.mars,
-                            iconColor,
-                            iconSize,
+                            kIconColor,
+                            kIconSize,
                           ),
                           'male   ',
                         ),
@@ -79,16 +79,16 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.female
-                        ? activeContainerColor
-                        : inactiveContainerColor,
+                        ? kActiveContainerColor
+                        : kInactiveContainerColor,
                     containerChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         containerChild(
                           childIcon(
                             FontAwesomeIcons.venus,
-                            iconColor,
-                            iconSize,
+                            kIconColor,
+                            kIconSize,
                           ),
                           'female',
                         )
@@ -99,7 +99,7 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: myContainer(
-                color: inactiveContainerColor,
+                color: kInactiveContainerColor,
                 containerChild: Column(
                   children: [
                     Text(
@@ -114,14 +114,14 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: myContainer(
-                    color: inactiveContainerColor,
+                    color: kInactiveContainerColor,
                     containerChild: Column(
                       children: [],
                     )),
               ),
               Expanded(
                 child: myContainer(
-                    color: inactiveContainerColor,
+                    color: kInactiveContainerColor,
                     containerChild: Column(
                       children: [],
                     )),
@@ -131,9 +131,9 @@ class _InputPageState extends State<InputPage> {
           Container(
             margin: EdgeInsets.only(top: 10, bottom: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
             decoration: BoxDecoration(
-              color: bottomContainerColor,
+              color: kBottomContainerColor,
               borderRadius: BorderRadius.circular(10),
             ),
           ),
